@@ -28,7 +28,7 @@ public class Icon : MonoBehaviour
     {
         if (isOneClick && (Time.time - firstClickTime) < timeBetweenClicks)
         {
-            OpenWindow();
+            OpenWindow(GetComponent<Image>().sprite);
             isOneClick = false;
         }
         else
@@ -39,7 +39,7 @@ public class Icon : MonoBehaviour
 
     }
 
-    public void OpenWindow()
+    public void OpenWindow(Sprite sprite)
     {
         if (windowScript.isMinimized)
         {
@@ -47,7 +47,7 @@ public class Icon : MonoBehaviour
         }
         else if (windowScript.isClosed)
         {
-            windowScript.OpenWindow();
+            windowScript.OpenWindow(sprite);
         }
     }
 }

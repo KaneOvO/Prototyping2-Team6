@@ -17,13 +17,18 @@ public class Window : MonoBehaviour
     public bool isMinimized = false;
     public bool isClosed = false;
 
+    public Dock dock;
+    public Sprite dockIconSprite;
+
     void Start()
     {
         windowPanel = gameObject.GetComponent<RectTransform>();
 
         minimizeButton.onClick.AddListener(MinimizeWindow);
-        restoreButton.onClick.AddListener(OnRestoreButtonClicked);
+        //restoreButton.onClick.AddListener(OnRestoreButtonClicked);
         closeButton.onClick.AddListener(CloseWindow);
+
+        dock = GameObject.Find("Dock").GetComponent<Dock>();
     }
 
     public void MinimizeWindow()
@@ -35,7 +40,8 @@ public class Window : MonoBehaviour
             restoreButton.interactable = false;
             windowIconButton.interactable = false;
 
-            restoreButton.onClick.AddListener(RestoreWindow);
+            //restoreButton.onClick.AddListener(RestoreWindow);
+            
             Vector3 minimizedPosition = restoreButton.transform.position;
             minimizedPosition = windowPanel.parent.InverseTransformPoint(minimizedPosition); //convert the position of the restore button to the local position of the windowPanel
 
@@ -108,11 +114,13 @@ public class Window : MonoBehaviour
                 windowPanel.localPosition = new Vector3(windowPanel.localPosition.x, windowPanel.localPosition.y, 1);
                 //restoreButton = null;
             });
+            
+            dock.CloseWindow(gameObject.GetComponent<Window>());
         }
 
     }
 
-    public void OpenWindow()
+    public void OpenWindow(Sprite sprite)
     {
         if (isClosed)
         { 
@@ -125,6 +133,9 @@ public class Window : MonoBehaviour
                 //change the z value of the windowPanel to 0 so that the window is visible
                 windowPanel.localPosition = new Vector3(windowPanel.localPosition.x, windowPanel.localPosition.y, 0);
             });
+
+            dockIconSprite = sprite;
+            dock.OpenWindow(gameObject.GetComponent<Window>());
         }
     }
 
