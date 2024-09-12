@@ -106,6 +106,7 @@ public class Window : MonoBehaviour
 
                 //change the z value of the windowPanel to 1 so that the window is hidden behind the other windows
                 windowPanel.localPosition = new Vector3(windowPanel.localPosition.x, windowPanel.localPosition.y, 1);
+                //restoreButton = null;
             });
         }
 
