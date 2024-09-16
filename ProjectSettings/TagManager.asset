@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Planet
   - Tree
+  - Fire
+  - Water
   layers:
   - Default
   - TransparentFX
