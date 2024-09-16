@@ -1,0 +1,44 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Tools : MonoBehaviour
+{
+    public bool isPlantingTool;
+    public bool isWateringTool;
+    void Start()
+    {
+        isPlantingTool = true;
+        isWateringTool = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            isPlantingTool = true;
+            isWateringTool = false;
+            UIManager.Instance.UpdateToolText("Planting Tool");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            isPlantingTool = false;
+            isWateringTool = true;
+            UIManager.Instance.UpdateToolText("Watering Tool");
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+}
