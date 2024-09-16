@@ -29,7 +29,7 @@ public class SC_PlanetGravity : MonoBehaviour
         {
             Quaternion q = Quaternion.FromToRotation(transform.up, -toCenter);
             q = q * transform.rotation;
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, 0.01f);
         }
     }
 }

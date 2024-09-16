@@ -34,7 +34,6 @@ public class SC_RigidbodyWalker : MonoBehaviour
 
     void Update()
     {
-
         float horizontalInput = 0f;
         if (Input.GetKey(KeyCode.A))
         {
@@ -58,6 +57,8 @@ public class SC_RigidbodyWalker : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
+
+
     }
 
     void FixedUpdate()
@@ -65,22 +66,23 @@ public class SC_RigidbodyWalker : MonoBehaviour
         if (grounded)
         {
             //Direction of movement
-            Vector3 forwardDir = transform.forward;
-            
-            //Target velocity, only moving forward
-            Vector3 targetVelocity = forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) * speed;
-            
-            Vector3 velocity = r.velocity;
+            Vector3 forwardDir = Vector3.Cross(transform.up, -transform.right).normalized;
+            Vector3 rightDir = Vector3.Cross(transform.up, transform.forward).normalized;
+
+            Vector3 targetVelocity = (forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) + rightDir * Input.GetAxis("Horizontal")) * speed;
+
+            Vector3 velocity = transform.InverseTransformDirection(r.velocity);
             velocity.y = 0;
-           
-            Vector3 velocityChange = targetVelocity - velocity;
-            velocityChange.y = 0; 
-            
+            velocity = transform.TransformDirection(velocity);
+
+            Vector3 velocityChange = transform.InverseTransformDirection(targetVelocity - velocity);
             velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
             velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+            velocityChange.y = 0;
+            velocityChange = transform.TransformDirection(velocityChange);
 
             r.AddForce(velocityChange, ForceMode.VelocityChange);
-            animator.SetFloat("Speed", velocityChange.magnitude);
+            Debug.Log(velocityChange);
 
             if (Input.GetButton("Jump") && canJump)
             {
@@ -95,6 +97,5 @@ public class SC_RigidbodyWalker : MonoBehaviour
     {
         grounded = true;
     }
-
 
 }
