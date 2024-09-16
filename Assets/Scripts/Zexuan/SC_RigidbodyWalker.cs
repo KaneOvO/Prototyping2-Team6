@@ -17,6 +17,8 @@ public class SC_RigidbodyWalker : MonoBehaviour
     Rigidbody r;
     Vector2 rotation = Vector2.zero;
     float maxVelocityChange = 10.0f;
+    public float lookSpeed = 2.0f;
+    public float lookXLimit = 60.0f;
 
     void Awake()
     {
@@ -34,21 +36,6 @@ public class SC_RigidbodyWalker : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = 0f;
-        if (Input.GetKey(KeyCode.A))
-        {
-            horizontalInput = -1f;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            horizontalInput = 1f;
-        }
-
-        float rotationAmount = horizontalInput * rotationSpeed;
-        Quaternion currentRotation = transform.rotation;
-        Quaternion deltaRotation = Quaternion.Euler(0, rotationAmount, 0);
-        transform.rotation = currentRotation * deltaRotation;
-
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
         {
             animator.SetFloat("Speed", r.velocity.magnitude);
@@ -63,13 +50,15 @@ public class SC_RigidbodyWalker : MonoBehaviour
 
     void FixedUpdate()
     {
+        Quaternion localRotation = Quaternion.Euler(0f, Input.GetAxis("Horizontal") * lookSpeed, 0f);
+        transform.rotation = transform.rotation * localRotation;
+
         if (grounded)
         {
             //Direction of movement
             Vector3 forwardDir = Vector3.Cross(transform.up, -transform.right).normalized;
-            Vector3 rightDir = Vector3.Cross(transform.up, transform.forward).normalized;
 
-            Vector3 targetVelocity = (forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) + rightDir * Input.GetAxis("Horizontal")) * speed;
+            Vector3 targetVelocity = forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) * speed;
 
             Vector3 velocity = transform.InverseTransformDirection(r.velocity);
             velocity.y = 0;
