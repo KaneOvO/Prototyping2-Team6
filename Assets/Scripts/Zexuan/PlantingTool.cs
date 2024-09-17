@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlantingTool : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class PlantingTool : MonoBehaviour
     {
         if (tools.isPlantingTool)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 PlantingTreeOrDestoryTree();
                 
@@ -37,6 +38,8 @@ public class PlantingTool : MonoBehaviour
                 GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
 
                 tree.transform.up = hit.normal;
+                //set parent to planet
+                tree.transform.SetParent(hit.collider.transform.Find("Trees"));
             }
             else if (hit.collider.CompareTag("Tree"))
             {

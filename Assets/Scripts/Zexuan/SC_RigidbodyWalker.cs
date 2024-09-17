@@ -36,7 +36,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W))
         {
             animator.SetFloat("Speed", r.velocity.magnitude);
         }
@@ -50,36 +50,39 @@ public class SC_RigidbodyWalker : MonoBehaviour
 
     void FixedUpdate()
     {
-        Quaternion localRotation = Quaternion.Euler(0f, Input.GetAxis("Horizontal") * lookSpeed, 0f);
-        transform.rotation = transform.rotation * localRotation;
-
-        if (grounded)
+        if (GameManager.Instance.isThirdPesronView)
         {
-            //Direction of movement
-            Vector3 forwardDir = Vector3.Cross(transform.up, -transform.right).normalized;
+            Quaternion localRotation = Quaternion.Euler(0f, Input.GetAxis("Horizontal") * lookSpeed, 0f);
+            transform.rotation = transform.rotation * localRotation;
 
-            Vector3 targetVelocity = forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) * speed;
-
-            Vector3 velocity = transform.InverseTransformDirection(r.velocity);
-            velocity.y = 0;
-            velocity = transform.TransformDirection(velocity);
-
-            Vector3 velocityChange = transform.InverseTransformDirection(targetVelocity - velocity);
-            velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-            velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-            velocityChange.y = 0;
-            velocityChange = transform.TransformDirection(velocityChange);
-
-            r.AddForce(velocityChange, ForceMode.VelocityChange);
-            Debug.Log(velocityChange);
-
-            if (Input.GetButton("Jump") && canJump)
+            if (grounded)
             {
-                r.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
-            }
-        }
+                //Direction of movement
+                Vector3 forwardDir = Vector3.Cross(transform.up, -transform.right).normalized;
 
-        grounded = false;
+                Vector3 targetVelocity = forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) * speed;
+
+                Vector3 velocity = transform.InverseTransformDirection(r.velocity);
+                velocity.y = 0;
+                velocity = transform.TransformDirection(velocity);
+
+                Vector3 velocityChange = transform.InverseTransformDirection(targetVelocity - velocity);
+                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                velocityChange.y = 0;
+                velocityChange = transform.TransformDirection(velocityChange);
+
+                r.AddForce(velocityChange, ForceMode.VelocityChange);
+                //Debug.Log(velocityChange);
+
+                if (Input.GetButton("Jump") && canJump)
+                {
+                    r.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
+                }
+            }
+
+            grounded = false;
+        }
     }
 
     void OnCollisionStay()
