@@ -10,6 +10,8 @@ public class PlantingTool : MonoBehaviour
     public GameObject treePreviewPrefab;
     private GameObject currentPreviewTree;
     private bool isPreviewing = false;
+    public float plantingCooldown = 2f;
+    private float lastPlantingTime = -Mathf.Infinity;
 
     void Start()
     {
@@ -18,7 +20,8 @@ public class PlantingTool : MonoBehaviour
 
     void Update()
     {
-        if (tools.isPlantingTool)
+        bool canPlant = Time.time >= lastPlantingTime + plantingCooldown;
+        if (tools.isPlantingTool && canPlant)
         {
             if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
             {
@@ -28,6 +31,7 @@ public class PlantingTool : MonoBehaviour
             {
                 RemoveTreePreview();
                 PlantingTreeOrDestoryTree();
+                lastPlantingTime = Time.time;
                 Debug.Log("PlantingTree");
             }
             else if (Input.GetMouseButtonUp(0) && !CheckCanPlanting(currentPreviewTree))
@@ -99,11 +103,6 @@ public class PlantingTool : MonoBehaviour
                 GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
                 tree.transform.up = hit.normal;
                 tree.transform.SetParent(hit.collider.transform.Find("Trees"));
-            }
-            else if (hit.collider.CompareTag("Tree"))
-            {
-                Destroy(hit.collider.gameObject);
-                Debug.Log("DestroyTree");
             }
         }
     }
