@@ -13,12 +13,8 @@ namespace Roger
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Fire Triggered");
-            
             if (other.CompareTag("Water"))
             {
-                
-                
                 ExtinguishFire();
             }
         }
