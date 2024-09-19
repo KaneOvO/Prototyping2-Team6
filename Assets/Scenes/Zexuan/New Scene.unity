@@ -564,6 +564,12 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 7638234203967119568, guid: 09a54baa4082f4348be2047622d12e0d,
+        type: 3}
+      propertyPath: treePreviewPrefab
+      value: 
+      objectReference: {fileID: 1130535350007672286, guid: 2cc3e9316c750bb4580c463b49c05c8a,
+        type: 3}
     - target: {fileID: 8862978774319741324, guid: 09a54baa4082f4348be2047622d12e0d,
         type: 3}
       propertyPath: m_Name
