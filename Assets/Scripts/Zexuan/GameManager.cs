@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject planet;
     public bool isThirdPesronView;
     public bool isWorldView;
+    public GameObject[] fire;
     void Awake()
     {
         if (Instance == null)
