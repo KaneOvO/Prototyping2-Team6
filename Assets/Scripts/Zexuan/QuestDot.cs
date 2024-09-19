@@ -26,7 +26,6 @@ public class QuestDot : MonoBehaviour
         dotPosition.localScale = Vector3.one;
         if (closestFire != null)
         {
-            Vector3 dir = GetDirectionOnSphere(closestFire.transform.position, GameManager.Instance.player.transform.position, GameManager.Instance.planet.transform.position);
             if (!IsOutsideMinimap(closestFire.transform.position, GameManager.Instance.player.transform.position, GameManager.Instance.planet.transform.position, 15f))
             {
                 dotPosition.position = targetPosition;
@@ -88,12 +87,12 @@ public class QuestDot : MonoBehaviour
         return closestTarget;
     }
 
-    Vector3 GetDirectionOnSphere(Vector3 targetPosition, Vector3 playerPosition, Vector3 planetCenter)
-    {
-        Vector3 playerToTarget = (targetPosition - planetCenter).normalized;
-        Vector3 playerUp = (playerPosition - planetCenter).normalized;
-        return Vector3.Cross(playerUp, playerToTarget);
-    }
+    // Vector3 GetDirectionOnSphere(Vector3 targetPosition, Vector3 playerPosition, Vector3 planetCenter)
+    // {
+    //     Vector3 playerToTarget = (targetPosition - planetCenter).normalized;
+    //     Vector3 playerUp = (playerPosition - planetCenter).normalized;
+    //     return Vector3.Cross(playerUp, playerToTarget);
+    // }
 
     bool IsOutsideMinimap(Vector3 targetPosition, Vector3 playerPosition, Vector3 planetCenter, float viewAngleLimit)
     {
