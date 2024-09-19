@@ -60,7 +60,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
                 //Direction of movement
                 Vector3 forwardDir = Vector3.Cross(transform.up, -transform.right).normalized;
 
-                Vector3 targetVelocity = forwardDir * Mathf.Max(0, Input.GetAxis("Vertical")) * speed;
+                Vector3 targetVelocity = forwardDir * Input.GetAxis("Vertical") * speed;
 
                 Vector3 velocity = transform.InverseTransformDirection(r.velocity);
                 velocity.y = 0;
