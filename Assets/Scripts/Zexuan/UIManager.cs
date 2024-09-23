@@ -11,11 +11,9 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
     public TextMeshProUGUI toolText;
     public Tools tools;
-    public Button startButton;
-    public Button restartButton;
-    public Button CreditsButton;
-    public Button exitButton;
+    public Button SettingsButton;
     public GameObject fadeImage;
+    public GameObject pauseMenu;
 
 
     void Awake()
@@ -30,6 +28,7 @@ public class UIManager : MonoBehaviour
         }
 
     }
+
 
     public void UpdateToolText(string toolName)
     {
@@ -54,6 +53,9 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        Time.timeScale = 1;
         fadeImage.SetActive(true);
         SceneManager.LoadScene("GameScene");
     }
@@ -67,5 +69,28 @@ public class UIManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;   
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        
+    }
+
+    public void ReturnMainMenu()
+    {
+        fadeImage.SetActive(true);
+        GetComponent<SceneTransition>().LoadScene("MainMenu");
     }
 }

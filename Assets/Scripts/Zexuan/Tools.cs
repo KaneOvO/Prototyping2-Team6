@@ -31,14 +31,16 @@ public class Tools : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            //Debug.Log("UnLock Cursor");
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        if ((Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt)) && Time.timeScale == 1)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            //Debug.Log("lock Cursor");
         }
     }
 }

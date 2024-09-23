@@ -28,9 +28,6 @@ public class SC_RigidbodyWalker : MonoBehaviour
         r.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rotation.y = transform.eulerAngles.y;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         animator = GetComponent<Animator>();
     }
 
