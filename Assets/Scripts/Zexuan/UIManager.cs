@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
     public TextMeshProUGUI toolText;
     public Tools tools;
+    public Button startButton;
+    public Button restartButton;
+    public Button CreditsButton;
+    public Button exitButton;
+    public GameObject fadeImage;
+
 
     void Awake()
     {
@@ -37,5 +44,28 @@ public class UIManager : MonoBehaviour
                 toolText.text = "Current Tool: " + toolName;
             }
         }
+    }
+
+    public void StartGame()
+    {
+        fadeImage.SetActive(true);
+        GetComponent<SceneTransition>().LoadScene("GameScene");
+    }
+
+    public void RestartGame()
+    {
+        fadeImage.SetActive(true);
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void Credits()
+    {
+        fadeImage.SetActive(true);
+        //SceneManager.LoadScene("Credits");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
