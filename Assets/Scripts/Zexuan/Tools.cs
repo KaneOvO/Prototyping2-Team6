@@ -10,6 +10,7 @@ public class Tools : MonoBehaviour
     {
         isPlantingTool = true;
         isWateringTool = false;
+        UIManager.Instance.plantingToolUI.SetActive(true);
     }
 
     // Update is called once per frame
@@ -19,26 +20,30 @@ public class Tools : MonoBehaviour
         {
             isPlantingTool = true;
             isWateringTool = false;
-            UIManager.Instance.UpdateToolText("Planting Tool");
+            UIManager.Instance.plantingToolUI.SetActive(true);
+            UIManager.Instance.wateringToolUI.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             isPlantingTool = false;
             isWateringTool = true;
-            UIManager.Instance.UpdateToolText("Watering Tool");
+            UIManager.Instance.plantingToolUI.SetActive(false);
+            UIManager.Instance.wateringToolUI.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            //Debug.Log("UnLock Cursor");
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        if ((Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt)) && Time.timeScale == 1)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            //Debug.Log("lock Cursor");
         }
     }
 }

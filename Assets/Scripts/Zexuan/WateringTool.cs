@@ -5,6 +5,7 @@ using UnityEngine;
 public class WateringTool : MonoBehaviour
 {
     public Tools tools;
+    public float wateringCooldown = 2f;
 
     // Start is called before the first frame update
     void Start()
