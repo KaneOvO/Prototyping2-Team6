@@ -6,17 +6,17 @@ namespace Roger
 {
     public class Tree : MonoBehaviour
     {
-        //public float growingTimer;
-        private float _growingDuration = 45;
-        private float _growingRate = 0.1f;
-        
         public bool isOnFire;
         public GameObject firePrefab;
         public GameObject firePlaceHolder;
 
-        public void Start()
+        private float _fireTimer;
+        private float _treeHp;
+        private float _treeHpMax = 10f;
+
+        public void Update()
         {
-            StartCoroutine(TreeGrow());
+            
         }
 
         private void OnTriggerEnter(Collider other)
@@ -29,6 +29,20 @@ namespace Roger
             {
                 TreeStopBurning();
             }
+        }
+
+        private void TreeHpCalculation()
+        {
+            if (isOnFire)
+            {
+                _treeHp -= Time.deltaTime;
+            }
+            else if (_treeHp < _treeHpMax)
+            {
+                _treeHp += Time.deltaTime;
+            }
+            
+            
         }
 
         public void TreeStartBurning()
@@ -47,7 +61,15 @@ namespace Roger
             firePlaceHolder = null;
         }
 
-        private IEnumerator TreeGrow()
+        public void TreeBurnedDown()
+        {
+            GameManager.Instance.TreeBurnedDown(GetComponent<Tree>());
+            
+            Destroy(firePlaceHolder);
+            Destroy(gameObject);
+        }
+
+        /*private IEnumerator TreeGrow()
         {
             var elapsedTime = 0f;
             
@@ -64,7 +86,7 @@ namespace Roger
                 yield return null;
             }
             
-        }
+        }*/
         
     }
 }

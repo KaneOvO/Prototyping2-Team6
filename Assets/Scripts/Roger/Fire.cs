@@ -28,10 +28,6 @@ namespace Roger
                 Destroy(gameObject, 1f);
             }
         }
-
-        private void FireSpread()
-        {
-            
-        }
+        
     }
 }

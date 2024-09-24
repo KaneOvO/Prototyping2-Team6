@@ -8,8 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototyping2-Team6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototyping2-Team6/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Roger/New Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Roger/New Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/Fire.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Fire.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/PlanetAlign.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/PlanetAlign.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Minimap Texture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Minimap Texture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VFX/FIRE/Materials/FX_MT_Firetorch_Loop_02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VFX/FIRE/Materials/FX_MT_Firetorch_Loop_02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VFX/FIRE/Prefabs/FX_PF_Fire_Torch_01 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VFX/FIRE/Prefabs/FX_PF_Fire_Torch_01 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VFX/FIRE/Textures/Flipbooks/Fire/FX_FireLoop01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VFX/FIRE/Textures/Flipbooks/Fire/FX_FireLoop01.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +117,9 @@
       <workItem from="1726585098643" duration="68000" />
       <workItem from="1726585176311" duration="9141000" />
       <workItem from="1726727553222" duration="9858000" />
-      <workItem from="1726757456757" duration="1459000" />
+      <workItem from="1726757456757" duration="9930000" />
+      <workItem from="1727191611406" duration="55000" />
+      <workItem from="1727191674677" duration="4422000" />
     </task>
     <servers />
   </component>
