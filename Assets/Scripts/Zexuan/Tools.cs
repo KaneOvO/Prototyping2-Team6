@@ -32,14 +32,14 @@ public class Tools : MonoBehaviour
             UIManager.Instance.wateringToolUI.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             //Debug.Log("UnLock Cursor");
         }
 
-        if ((Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt)) && Time.timeScale == 1)
+        if (Input.GetKeyUp(KeyCode.Q) && Time.timeScale == 1)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
