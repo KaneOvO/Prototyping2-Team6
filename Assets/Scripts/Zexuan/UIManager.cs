@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
     public Tools tools;
     public Button SettingsButton;
+    public GameObject StartButton;
+    public GameObject CreditsButton;
+    public GameObject ExitButton;
     public GameObject fadeImage;
+    public GameObject creditsPanel;
     public GameObject pauseMenu;
     public GameObject plantingToolUI;
     public GameObject wateringToolUI;
@@ -47,10 +52,20 @@ public class UIManager : MonoBehaviour
         GetComponent<SceneTransition>().LoadScene("GameScene");
     }
 
-    public void Credits()
+    public void ShowCredits()
     {
-        fadeImage.SetActive(true);
-        //SceneManager.LoadScene("Credits");
+        creditsPanel.SetActive(true);
+        StartButton.SetActive(false);
+        CreditsButton.SetActive(false);
+        ExitButton.SetActive(false);
+    }
+
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+        StartButton.SetActive(true);
+        CreditsButton.SetActive(true);
+        ExitButton.SetActive(true);
     }
 
     public void ExitGame()
