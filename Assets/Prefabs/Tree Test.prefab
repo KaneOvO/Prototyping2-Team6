@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2059188726057512749}
   - component: {fileID: 1816176921202896960}
   - component: {fileID: 915583780246996196}
+  - component: {fileID: 3209066375304774286}
   - component: {fileID: 5497242320513477863}
   m_Layer: 0
   m_Name: Tree Test
@@ -109,6 +110,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3209066375304774286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130535350007672286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35428ef258bd20c4ea3f8f70320feccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnFire: 0
+  firePrefab: {fileID: 1696666546359898561, guid: ce17f7080e137444e9144e9b81648ce6,
+    type: 3}
+  firePlaceHolder: {fileID: 0}
 --- !u!114 &5497242320513477863
 MonoBehaviour:
   m_ObjectHideFlags: 0
