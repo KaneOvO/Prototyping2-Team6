@@ -2251,12 +2251,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954261704}
   m_CullTransparentMesh: 1
---- !u!1 &1091611495 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1130535350007672286, guid: ef8154ed10037354cbf8db52d462a770,
-    type: 3}
-  m_PrefabInstance: {fileID: 880750750}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1091611499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1756374361403590632, guid: ef8154ed10037354cbf8db52d462a770,
@@ -2376,6 +2370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1145377534}
   - component: {fileID: 1145377535}
+  - component: {fileID: 1145377536}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2415,7 +2410,21 @@ MonoBehaviour:
   isThirdPesronView: 1
   isWorldView: 0
   fire:
-  - {fileID: 1091611495}
+  - {fileID: 0}
+--- !u!114 &1145377536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145377533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f014cd4935a1349bec3cfffc2bbc28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trees: []
+  burningTrees: []
 --- !u!1 &1157893169
 GameObject:
   m_ObjectHideFlags: 0
