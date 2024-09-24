@@ -85,7 +85,8 @@ public class UIManager : MonoBehaviour
 
     public void ReturnMainMenu()
     {
-        fadeImage.SetActive(true);
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
         GetComponent<SceneTransition>().LoadScene("MainMenu");
     }
 
