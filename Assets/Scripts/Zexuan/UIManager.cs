@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject plantingToolUI;
     public GameObject wateringToolUI;
     public GameObject[] equapmentBar;
+    public bool isTransitioning;
 
 
     void Awake()

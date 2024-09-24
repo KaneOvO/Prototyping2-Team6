@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Time.timeScale == 1)
+            if(Time.timeScale == 1 && !UIManager.Instance.isTransitioning)
             {
                 UIManager.Instance.PauseGame();
             }

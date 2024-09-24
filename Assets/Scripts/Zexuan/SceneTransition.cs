@@ -24,6 +24,7 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
+        UIManager.Instance.isTransitioning = true;
         float alpha = 1;
         while (alpha > 0)
         {
@@ -32,10 +33,12 @@ public class SceneTransition : MonoBehaviour
             yield return null;
         }
         UIManager.Instance.fadeImage.SetActive(false);
+        UIManager.Instance.isTransitioning = false;
     }
 
     private IEnumerator FadeOutAndLoadScene(string sceneName)
     {
+        UIManager.Instance.isTransitioning = true;
         UIManager.Instance.fadeImage.SetActive(true);
         float alpha = 0;
         while (alpha < 1)
@@ -45,6 +48,7 @@ public class SceneTransition : MonoBehaviour
             yield return null;
         }
         SceneManager.LoadScene(sceneName);
+        UIManager.Instance.isTransitioning = false;
     }
 
     private void SetAlpha(float alpha)
