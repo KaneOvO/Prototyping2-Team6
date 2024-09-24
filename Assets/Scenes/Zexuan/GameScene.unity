@@ -1565,7 +1565,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2109856010}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &769431790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,10 +4144,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tools: {fileID: 23261861}
   SettingsButton: {fileID: 2045719414}
+  StartButton: {fileID: 0}
+  CreditsButton: {fileID: 0}
+  ExitButton: {fileID: 0}
   fadeImage: {fileID: 41814217}
+  creditsPanel: {fileID: 0}
   pauseMenu: {fileID: 1921919898}
   plantingToolUI: {fileID: 1157893169}
   wateringToolUI: {fileID: 1883552570}
+  volumeSlider: {fileID: 766986279}
   equapmentBar:
   - {fileID: 628758284}
   - {fileID: 1332300707}

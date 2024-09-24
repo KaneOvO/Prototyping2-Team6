@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject plantingToolUI;
     public GameObject wateringToolUI;
+    public Slider volumeSlider;
     public GameObject[] equapmentBar;
     public bool isTransitioning;
 
@@ -35,6 +36,14 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    void Start()
+    {
+        if(volumeSlider != null)
+        {
+            volumeSlider.value = AudioManager.Instance.globalVolume;
+        }
     }
 
     public void StartGame()
@@ -119,5 +128,10 @@ public class UIManager : MonoBehaviour
         tools.isWateringTool = true;
         plantingToolUI.SetActive(false);
         wateringToolUI.SetActive(true);
+    }
+
+    public void SetVolume()
+    {
+        AudioManager.Instance.SetGlobalVolume(volumeSlider.value);
     }
 }
