@@ -9,11 +9,13 @@ public class UIManager : MonoBehaviour
 {
     //singleton
     public static UIManager Instance { get; private set; }
-    public TextMeshProUGUI toolText;
     public Tools tools;
     public Button SettingsButton;
     public GameObject fadeImage;
     public GameObject pauseMenu;
+    public GameObject plantingToolUI;
+    public GameObject wateringToolUI;
+    public GameObject[] equapmentBar;
 
 
     void Awake()
@@ -29,22 +31,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-
-    public void UpdateToolText(string toolName)
-    {
-        if(toolText != null)
-        {
-            if(tools.isPlantingTool)
-            {
-                toolText.text = "Current Tool: " + toolName;
-            }
-            else if(tools.isWateringTool)
-            {
-                toolText.text = "Current Tool: " + toolName;
-            }
-        }
-    }
-
     public void StartGame()
     {
         fadeImage.SetActive(true);
@@ -57,7 +43,7 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1;
         fadeImage.SetActive(true);
-        SceneManager.LoadScene("GameScene");
+        GetComponent<SceneTransition>().LoadScene("GameScene");
     }
 
     public void Credits()
@@ -76,7 +62,11 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;   
+        Cursor.visible = true;
+        foreach (GameObject item in equapmentBar)
+        {
+            item.SetActive(false);
+        }   
     }
 
     public void ResumeGame()
@@ -85,6 +75,10 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
+        foreach (GameObject item in equapmentBar)
+        {
+            item.SetActive(true);
+        }
         
     }
 
@@ -92,5 +86,21 @@ public class UIManager : MonoBehaviour
     {
         fadeImage.SetActive(true);
         GetComponent<SceneTransition>().LoadScene("MainMenu");
+    }
+
+    public void SwitchToPlantingTool()
+    {
+        tools.isPlantingTool = true;
+        tools.isWateringTool = false;
+        plantingToolUI.SetActive(true);
+        wateringToolUI.SetActive(false);
+    }
+
+    public void SwitchToWateringTool()
+    {
+        tools.isPlantingTool = false;
+        tools.isWateringTool = true;
+        plantingToolUI.SetActive(false);
+        wateringToolUI.SetActive(true);
     }
 }

@@ -8,6 +8,7 @@ public class PlantingTool : MonoBehaviour
     public Tools tools;
     public GameObject treePrefab;
     public GameObject treePreviewPrefab;
+    public GameObject plantingUI;
     private GameObject currentPreviewTree;
     private bool isPreviewing = false;
     public float plantingCooldown = 2f;
@@ -32,6 +33,7 @@ public class PlantingTool : MonoBehaviour
                 RemoveTreePreview();
                 PlantingTreeOrDestoryTree();
                 lastPlantingTime = Time.time;
+                plantingUI.GetComponent<TestSkill>().isCold = true;
                 Debug.Log("PlantingTree");
             }
             else if (Input.GetMouseButtonUp(0) && !CheckCanPlanting(currentPreviewTree))

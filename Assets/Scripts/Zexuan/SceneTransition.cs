@@ -36,6 +36,7 @@ public class SceneTransition : MonoBehaviour
 
     private IEnumerator FadeOutAndLoadScene(string sceneName)
     {
+        UIManager.Instance.fadeImage.SetActive(true);
         float alpha = 0;
         while (alpha < 1)
         {
