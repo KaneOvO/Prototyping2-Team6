@@ -709,6 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39bce8aa322da3942ae48d49b1f6957c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFadeing: 0
   sounds:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: a117ddc214fb0984782f4246f270d1a6, type: 3}
@@ -997,26 +998,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>Producer</b>
-
-    Carson Knowles
-
-
-    <b>Artist</b>
-
-    Akane Liu
-
-    Zachary
-    Walk
-
-    Jun Xu
-
-
-    <b>Engineer</b>
-
-    Hairong (Roger) Luo
-
-    Zexuan Li'
+  m_text: "<b>Producer</b>\nCarson Knowles - cknowles0329@gmail.com\n\n<b>Artist</b>\nAkane
+    Liu - \nZachary Walk - zachwalk@icloud.com\nJun Xu - u1537043@utah.edu\n\n<b>Engineer</b>\nHairong
+    (Roger) Luo - rogerluo1221@gmail.com\nZexuan Li - lzx213@gmail.com"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2253,6 +2237,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   plantingToolUI: {fileID: 0}
   wateringToolUI: {fileID: 0}
+  volumeSlider: {fileID: 0}
   equapmentBar: []
   isTransitioning: 0
 --- !u!114 &2109856011
