@@ -4142,6 +4142,7 @@ MonoBehaviour:
   - {fileID: 799024178}
   - {fileID: 1711984136}
   - {fileID: 954261704}
+  isTransitioning: 0
 --- !u!114 &2109856011
 MonoBehaviour:
   m_ObjectHideFlags: 0
