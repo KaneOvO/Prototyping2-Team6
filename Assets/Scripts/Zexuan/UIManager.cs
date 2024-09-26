@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        if(volumeSlider != null)
+        if(volumeSlider != null && AudioManager.Instance != null)
         {
             volumeSlider.value = AudioManager.Instance.globalVolume;
         }
@@ -132,6 +132,10 @@ public class UIManager : MonoBehaviour
 
     public void SetVolume()
     {
-        AudioManager.Instance.SetGlobalVolume(volumeSlider.value);
+        if(AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetGlobalVolume(volumeSlider.value);
+        }
+        
     }
 }
