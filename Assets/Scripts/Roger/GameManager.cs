@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,12 +11,12 @@ namespace Roger
         
         public List<Tree> trees;
         public List<Tree> burningTrees;
-        private float _fireSpawnTimer = 8f;
+        private float _fireSpawnTimer = 5f;
         private float _fireSpawnRateMax = 3f;
 
         private void Start()
         {
-            if (Instance == null)
+            if (Instance== null)
             {
                 Instance = this;
             }
@@ -69,7 +66,7 @@ namespace Roger
             {
                 yield return new WaitForSeconds(_fireSpawnTimer);
                 
-                if (trees.Count > 0)
+                /*if (trees.Count > 0)
                 {
                     var randomIndex = Random.Range(0, trees.Count);
                     
@@ -79,6 +76,31 @@ namespace Roger
                     {
                         _fireSpawnTimer -= 1;
                     }
+                }*/
+
+                if (trees.Count > 0 && burningTrees.Count == 0)
+                {
+                    var randomIndex = Random.Range(0, trees.Count);
+                    
+                    TreeStartBurning(trees[randomIndex]);
+                }
+                else if (trees.Count > 0 && burningTrees.Count > 0)
+                {
+                    Tree closetTree = null;
+                    var closetDist = Mathf.Infinity;
+
+                    foreach (var tree in trees)
+                    {
+                        var dist = Vector3.Distance(tree.transform.position, transform.position);
+
+                        if (dist < closetDist)
+                        {
+                            closetDist = dist;
+                            closetTree = tree;
+                        }
+                    }
+                    
+                    TreeStartBurning(closetTree);
                 }
             }
         }

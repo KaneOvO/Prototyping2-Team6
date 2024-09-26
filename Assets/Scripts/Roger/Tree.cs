@@ -16,18 +16,14 @@ namespace Roger
 
         public void Update()
         {
-            
+            TreeHpCalculation();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Fire"))
+            if (other.CompareTag("Water"))
             {
-                TreeStartBurning();
-            }
-            else if (other.CompareTag("Water"))
-            {
-                TreeStopBurning();
+                if (isOnFire) GameManager.Instance.TreeStopBurning(GetComponent<Tree>());
             }
         }
 
@@ -41,8 +37,11 @@ namespace Roger
             {
                 _treeHp += Time.deltaTime;
             }
-            
-            
+
+            if (_treeHp <= 0)
+            {
+                TreeBurnedDown();
+            }
         }
 
         public void TreeStartBurning()
