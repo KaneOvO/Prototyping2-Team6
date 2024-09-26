@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 {
     //singleton
     public static UIManager Instance { get; private set; }
-    public Tools tools;
+    public ToolsManager tools;
     public Button SettingsButton;
     public GameObject StartButton;
     public GameObject CreditsButton;
