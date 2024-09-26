@@ -6,7 +6,7 @@ using Roger;
 
 public class PlantingTool : MonoBehaviour
 {
-    public Tools tools;
+    public ToolsManager tools;
     public GameObject treePrefab;
     public GameObject treePreviewPrefab;
     public GameObject plantingUI;
