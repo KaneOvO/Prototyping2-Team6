@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Roger;
 
 public class PlantingTool : MonoBehaviour
 {
-    public Tools tools;
+    public ToolsManager tools;
     public GameObject treePrefab;
     public GameObject treePreviewPrefab;
     public GameObject plantingUI;
@@ -103,6 +104,7 @@ public class PlantingTool : MonoBehaviour
             if (hit.collider.CompareTag("Planet"))
             {
                 GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
+                Roger.GameManager.Instance.TreePlanted(tree.GetComponent<Roger.Tree>());
                 tree.transform.up = hit.normal;
                 tree.transform.SetParent(hit.collider.transform.Find("Trees"));
             }

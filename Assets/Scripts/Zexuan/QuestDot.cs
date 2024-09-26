@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Roger;
 
 public class QuestDot : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class QuestDot : MonoBehaviour
 
     private void Update()
     {
-        closestFire = GetClosestTargetOnSphere(GameManager.Instance.fire, GameManager.Instance.player.transform.position);
+        closestFire = GetClosestTargetOnSphere(Roger.GameManager.Instance.burningTrees, GameManager.Instance.player.transform.position);
         if(closestFire == null)
         {
             dotPosition.localScale = Vector3.zero;
@@ -69,19 +70,19 @@ public class QuestDot : MonoBehaviour
         }
     }
 
-    public GameObject GetClosestTargetOnSphere(GameObject[] targets, Vector3 playerPosition)
+    public GameObject GetClosestTargetOnSphere(List<Roger.Tree> targets, Vector3 playerPosition)
     {
         GameObject closestTarget = null;
         float minDistance = Mathf.Infinity;
 
-        foreach (GameObject target in targets)
+        foreach (var target in targets)
         {
-            float distance = Vector3.Distance(playerPosition, target.transform.position);
+            float distance = Vector3.Distance(playerPosition, target.gameObject.transform.position);
 
             if (distance < minDistance)
             {
                 minDistance = distance;
-                closestTarget = target;
+                closestTarget = target.gameObject;
             }
         }
         return closestTarget;

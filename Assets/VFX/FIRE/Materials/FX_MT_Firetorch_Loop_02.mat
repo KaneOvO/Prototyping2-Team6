@@ -90,7 +90,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: fc02b1f0aa5a62e419889658e3e66da4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6befa1af61a33774184e99db85569ae4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseColor_Opacity:

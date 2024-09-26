@@ -680,6 +680,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387669253}
   m_CullTransparentMesh: 1
+--- !u!1 &414704585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414704587}
+  - component: {fileID: 414704586}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &414704586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414704585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39bce8aa322da3942ae48d49b1f6957c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFadeing: 0
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: a117ddc214fb0984782f4246f270d1a6, type: 3}
+    loop: 1
+    volume: 1
+    source: {fileID: 0}
+  backgroundMusicName: BackgroundMusic
+  globalVolume: 1
+--- !u!4 &414704587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414704585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612711032
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612711033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -730,14 +783,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1825931381, guid: 1201c14bb4ee74d8e99e56dc4f3f4fd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -945,26 +998,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Producer
-
-    Carson Knowles
-
-
-    Artist
-
-    Akane Liu
-
-    Zachary
-    Walk
-
-    Jun Xu
-
-
-    Engineer
-
-    Zexuan Li
-
-    Hairong (Roger) Luo'
+  m_text: "<b>Producer</b>\nCarson Knowles - cknowles0329@gmail.com\n\n<b>Artist</b>\nAkane
+    Liu - \nZachary Walk - zachwalk@icloud.com\nJun Xu - u1537043@utah.edu\n\n<b>Engineer</b>\nHairong
+    (Roger) Luo - rogerluo1221@gmail.com\nZexuan Li - lzx213@gmail.com"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2201,6 +2237,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   plantingToolUI: {fileID: 0}
   wateringToolUI: {fileID: 0}
+  volumeSlider: {fileID: 0}
   equapmentBar: []
   isTransitioning: 0
 --- !u!114 &2109856011
@@ -2385,5 +2422,6 @@ SceneRoots:
   - {fileID: 328790703}
   - {fileID: 2127803055}
   - {fileID: 70149519}
+  - {fileID: 414704587}
   - {fileID: 2109856014}
   - {fileID: 2031852708}
