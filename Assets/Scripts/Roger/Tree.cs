@@ -13,6 +13,9 @@ namespace Roger
         private float _fireTimer;
         private float _treeHp;
         private float _treeHpMax = 10f;
+        public bool _treeWatered;
+        public float _extinguishTimeThreshold = 2f;
+        public float _extinguishTime = 0f;
 
         public void Update()
         {
@@ -29,7 +32,7 @@ namespace Roger
 
         private void TreeHpCalculation()
         {
-            if (isOnFire)
+            if (isOnFire && !_treeWatered)
             {
                 _treeHp -= Time.deltaTime;
             }
@@ -41,6 +44,15 @@ namespace Roger
             if (_treeHp <= 0)
             {
                 TreeBurnedDown();
+            }
+
+            if(_treeWatered && isOnFire)
+            {
+               _extinguishTime += Time.deltaTime;
+                if (_extinguishTime >= _extinguishTimeThreshold)
+                {
+                    TreeStopBurning();
+                }
             }
         }
 
