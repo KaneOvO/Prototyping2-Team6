@@ -8,19 +8,32 @@ public class SwitchCamera : MonoBehaviour
     public GameObject mainCamera;
     public GameObject camera1;
     public GameObject camera2;
+    public GameObject startCamera;
     public GameObject minimapCamera1;
     public GameObject minimapCamera2;
     public GameObject camrera2OriginPos;
     // Start is called before the first frame update
     void Start()
     {
-
+        if(SceneManager1.Instance.isBackToMainMenu)
+        {
+            camera1.SetActive(false);
+            camera2.SetActive(false);
+            minimapCamera1.SetActive(false);
+            minimapCamera2.SetActive(false);
+            startCamera.SetActive(true);
+        }
+        else
+        {
+            OnStartGame();
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !UIManager.Instance.isTransitioning && !UIManager.Instance.isMainMenu)
         {
             camera1.SetActive(!camera1.activeSelf);
             camera2.SetActive(!camera2.activeSelf);
@@ -55,6 +68,15 @@ public class SwitchCamera : MonoBehaviour
                 mainCamera.GetComponent<Camera>().cullingMask &= ~((1 << LayerMask.NameToLayer("PlayerTag")) | (1 << LayerMask.NameToLayer("Fire")));
             }
         }
+    }
+
+    public void OnStartGame()
+    {
+        camera1.SetActive(true);
+        camera2.SetActive(false);
+        minimapCamera1.SetActive(true);
+        minimapCamera2.SetActive(false);
+        startCamera.SetActive(false);
     }
 
 

@@ -17,6 +17,12 @@ public class QuestDot : MonoBehaviour
 
     private void Update()
     {
+        if(UIManager.Instance.isMainMenu)
+        {
+            dotPosition.localScale = Vector3.zero;
+            return;
+        }
+        
         closestFire = GetClosestTargetOnSphere(Roger.GameManager.Instance.burningTrees, GameManager.Instance.player.transform.position);
         if(closestFire == null)
         {

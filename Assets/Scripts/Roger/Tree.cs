@@ -62,6 +62,7 @@ namespace Roger
             
             var fire = Instantiate(firePrefab, transform.position, Quaternion.identity);
             firePlaceHolder = fire;
+            fire.transform.SetParent(transform);
         }
 
         public void TreeStopBurning()

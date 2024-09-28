@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public bool isThirdPesronView;
     public bool isWorldView;
     public GameObject[] fire;
+    
     void Awake()
     {
         if (Instance == null)
@@ -27,10 +28,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        isThirdPesronView = true;
-        isWorldView = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if(SceneManager1.Instance.isBackToMainMenu)
+        {
+            isThirdPesronView = false;
+            isWorldView = true;
+            player.transform.SetParent(planet.transform);
+        }
+        else
+        {
+            isThirdPesronView = true;
+            isWorldView = false;
+            player.transform.SetParent(null);
+        }
     }
 
     // Update is called once per frame
@@ -38,11 +47,11 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Time.timeScale == 1 && !UIManager.Instance.isTransitioning)
+            if(Time.timeScale == 1 && !UIManager.Instance.isTransitioning && !UIManager.Instance.isMainMenu)
             {
                 UIManager.Instance.PauseGame();
             }
-            else
+            else if(Time.timeScale == 0 && !UIManager.Instance.isTransitioning && !UIManager.Instance.isMainMenu)
             {
                 UIManager.Instance.ResumeGame();
             }

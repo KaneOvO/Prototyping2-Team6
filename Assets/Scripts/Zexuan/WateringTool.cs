@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Roger;
 
 public class WateringTool : MonoBehaviour
@@ -19,7 +20,7 @@ public class WateringTool : MonoBehaviour
 
     void Update()
     {
-        if (tools.isWateringTool)
+        if (tools.isWateringTool && !EventSystem.current.IsPointerOverGameObject() && Time.timeScale == 1 && GameManager.Instance.isThirdPesronView)
         {
             if (isCoolingDown)
             {

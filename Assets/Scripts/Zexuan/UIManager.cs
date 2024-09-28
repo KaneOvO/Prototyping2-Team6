@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,8 +19,11 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject plantingToolUI;
     public GameObject wateringToolUI;
+    public GameObject MiniMapMask;
+    public GameObject MiniMap;
     public Slider volumeSlider;
     public GameObject[] equapmentBar;
+    public bool isMainMenu;
     public bool isTransitioning;
 
 
@@ -40,24 +42,41 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        if(volumeSlider != null && AudioManager.Instance != null)
+        if (volumeSlider != null && AudioManager.Instance != null)
         {
             volumeSlider.value = AudioManager.Instance.globalVolume;
+        }
+
+        if(!SceneManager1.Instance.isBackToMainMenu)
+        {
+            isMainMenu = false;
+            ShowGameUI();
+            HiddenStartUI();
+        }
+        else
+        {
+            isMainMenu = true;
+            ShowStartUI();
+            HiddenGameUI();
         }
     }
 
     public void StartGame()
     {
-        fadeImage.SetActive(true);
-        GetComponent<SceneTransition>().LoadScene("GameScene");
+        LockCursor();
+        isMainMenu = false;
+        ShowGameUI();
+        HiddenStartUI();
+        GameManager.Instance.isThirdPesronView = true;
+        GameManager.Instance.isWorldView = false;
     }
 
     public void RestartGame()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
         Time.timeScale = 1;
-        fadeImage.SetActive(true);
+        pauseMenu.SetActive(false);
+        LockCursor();
+        SceneManager1.Instance.isBackToMainMenu = false;
         GetComponent<SceneTransition>().LoadScene("GameScene");
     }
 
@@ -86,32 +105,31 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-        foreach (GameObject item in equapmentBar)
-        {
-            item.SetActive(false);
-        }   
+        UnlockCursor();
+        // foreach (GameObject item in equapmentBar)
+        // {
+        //     item.SetActive(false);
+        // }
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
-        foreach (GameObject item in equapmentBar)
-        {
-            item.SetActive(true);
-        }
-        
+        LockCursor();
+        // foreach (GameObject item in equapmentBar)
+        // {
+        //     item.SetActive(true);
+        // }
+
     }
 
     public void ReturnMainMenu()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
-        GetComponent<SceneTransition>().LoadScene("MainMenu");
+        SceneManager1.Instance.isBackToMainMenu = true;
+        GetComponent<SceneTransition>().LoadScene("GameScene");
     }
 
     public void SwitchToPlantingTool()
@@ -132,10 +150,61 @@ public class UIManager : MonoBehaviour
 
     public void SetVolume()
     {
-        if(AudioManager.Instance != null)
+        if (AudioManager.Instance != null )
         {
             AudioManager.Instance.SetGlobalVolume(volumeSlider.value);
         }
-        
+
+    }
+
+    void HiddenStartUI()
+    {
+        StartButton.SetActive(false);
+        CreditsButton.SetActive(false);
+        ExitButton.SetActive(false);
+    }
+
+    void ShowStartUI()
+    {
+        StartButton.SetActive(true);
+        CreditsButton.SetActive(true);
+        ExitButton.SetActive(true);
+    }
+
+    void ShowGameUI()
+    {
+        foreach (GameObject item in equapmentBar)
+        {
+            item.SetActive(true);
+        }
+
+        MiniMapMask.SetActive(true);
+        MiniMap.SetActive(true);
+        SettingsButton.gameObject.SetActive(true);
+
+    }
+
+    void HiddenGameUI()
+    {
+        foreach (GameObject item in equapmentBar)
+        {
+            item.SetActive(false);
+        }
+
+        MiniMapMask.SetActive(false);
+        MiniMap.SetActive(false);
+        SettingsButton.gameObject.SetActive(false);
+    }
+
+    void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }

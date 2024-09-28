@@ -23,7 +23,7 @@ public class PlantingTool : MonoBehaviour
     void Update()
     {
         bool canPlant = Time.time >= lastPlantingTime + plantingCooldown;
-        if (tools.isPlantingTool && canPlant && !EventSystem.current.IsPointerOverGameObject() && Cursor.visible && Time.timeScale == 1)
+        if (tools.isPlantingTool && canPlant && !EventSystem.current.IsPointerOverGameObject() && Cursor.visible && Time.timeScale == 1 && GameManager.Instance.isThirdPesronView)
         {
             if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
             {

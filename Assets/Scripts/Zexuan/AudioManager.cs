@@ -114,7 +114,7 @@ public class AudioManager : MonoBehaviour
         // Update the volume of all currently playing sounds
         foreach (Sound s in sounds)
         {
-            if (s.source != null && s.source.isPlaying)
+            if (s.source != null && s.source.isPlaying && !isFadeing)
             {
                 s.source.volume = s.volume * globalVolume;
             }
@@ -126,15 +126,19 @@ public class AudioManager : MonoBehaviour
         Sound s = System.Array.Find(sounds, sound => sound.name == name);
         if (s != null)
         {
+            isFadeing = true;
             s.source.volume = 0f;  // Start with volume at 0
             s.source.Play();  // Start playing the music
+            s.source.volume = 0f;  // Start with volume at 0
             float startVolume = s.volume * globalVolume;
-            isFadeing = true;
+            
 
             float elapsedTime = 0f;
 
             while (elapsedTime < duration)
             {
+                Debug.Log("S.source.volume: " + s.source.volume);
+                Debug.Log("S.volume: " + s.volume);
                 elapsedTime += Time.deltaTime;
                 s.source.volume = Mathf.Lerp(0f, startVolume, elapsedTime / duration);
                 yield return null;
@@ -149,14 +153,24 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         // Update all currently playing sounds' volume based on globalVolume
         foreach (Sound s in sounds)
         {
-            if (s.source != null && s.source.isPlaying && !isFadeing)
+            if (s.source != null && s.source.isPlaying)
             {
-                s.source.volume = s.volume * globalVolume;
+                if(!isFadeing)
+                {
+                    Debug.Log("!isFadeing");
+                    s.source.volume = s.volume * globalVolume;
+                }
+                else
+                {
+                    
+                }
+                
             }
         }
     }
