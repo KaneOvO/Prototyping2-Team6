@@ -133,10 +133,10 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FoamAmount: 0.8
-    - _FoamCutOut: 3.7
+    - _FoamAmount: 1.9
+    - _FoamCutOut: 3
     - _FoamScale: 100
-    - _FoamSpeed: 3.12
+    - _FoamSpeed: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -146,15 +146,15 @@ Material:
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RefrectionScale: 0.57
-    - _RefrectionSpeed: 0.01
-    - _RefrectionStrength: 2.31
+    - _RefrectionScale: 1
+    - _RefrectionSpeed: 0.05
+    - _RefrectionStrength: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WaterDepth: 5
+    - _WaterDepth: 3.52
     - _WorkflowMode: 1
     - _ZWrite: 1
     - reflectionStrength: 1.1
