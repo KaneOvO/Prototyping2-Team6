@@ -10,8 +10,9 @@ public class WateringTool : MonoBehaviour
     public GameObject wateringUI;
     public float wateringCooldown = 2f;
     public float wateringDuration = 10f;
-    public Collider waterCollider;
-    public Renderer meshRenderer;
+    public Collider waterCollider1;
+    public Collider waterCollider2;
+    public GameObject waterEffect;
     public float extinguishTimeThreshold = 2f;
     private float wateringTime = 0f;
     private float cooldownTime = 0f;
@@ -39,8 +40,9 @@ public class WateringTool : MonoBehaviour
                 {
                     isWatering = true;
                     wateringTime = 0f;
-                    waterCollider.enabled = true;
-                    meshRenderer.enabled = true;
+                    waterCollider1.enabled = true;
+                    waterCollider2.enabled = true;
+                    waterEffect.SetActive(true);
                 }
 
                 wateringTime += Time.deltaTime;
@@ -61,8 +63,9 @@ public class WateringTool : MonoBehaviour
     void StopWatering()
     {
         isWatering = false;
-        waterCollider.enabled = false;
-        meshRenderer.enabled = false;
+        waterCollider1.enabled = false;
+        waterCollider2.enabled = false;
+        waterEffect.SetActive(false);
         isCoolingDown = true;
         wateringUI.GetComponent<TestSkill>().isCold = true;
     }
