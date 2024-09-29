@@ -856,6 +856,34 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &387360949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6218584348152223881, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
+    type: 3}
+  m_PrefabInstance: {fileID: 668764723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &387360953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387360949}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5916762919840023054, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad, type: 3}
 --- !u!1 &473949641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,6 +1101,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc52b09e25215f54591892a22409f0bf, type: 3}
+--- !u!1 &555732639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4314542904869918674, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
+    type: 3}
+  m_PrefabInstance: {fileID: 668764723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &555732643
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555732639}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3124755592329342505, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad, type: 3}
 --- !u!1 &560786761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1233,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 2.34
   m_Center: {x: 0, y: 0, z: 0}
@@ -1215,7 +1271,7 @@ MonoBehaviour:
   Thickness: 1
   CompensateShapeAmount: 0
   mesh: {fileID: -6948991058301074398, guid: 3386f4b041f08e249b4efcc07a6190dc, type: 3}
-  rend: {fileID: 0}
+  rend: {fileID: 561954616}
 --- !u!23 &561954616
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1682,6 +1738,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6208403738591863267, guid: 09a54baa4082f4348be2047622d12e0d,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396477281281070710, guid: 09a54baa4082f4348be2047622d12e0d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.1880695
+      objectReference: {fileID: 0}
+    - target: {fileID: 6396477281281070710, guid: 09a54baa4082f4348be2047622d12e0d,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.020939678
+      objectReference: {fileID: 0}
     - target: {fileID: 6396477281281070710, guid: 09a54baa4082f4348be2047622d12e0d,
         type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -1811,6 +1882,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd1e604c9a27f8544be64e835d5d0ed9, type: 2}
+    - target: {fileID: -6218584348152223881, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: -4314542904869918674, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Planet
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
         type: 3}
       propertyPath: m_Name
@@ -1824,7 +1905,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
         type: 3}
       propertyPath: m_TagString
-      value: Planet
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1854,6 +1935,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 561954615}
+    - targetCorrespondingSourceObject: {fileID: -4314542904869918674, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555732643}
+    - targetCorrespondingSourceObject: {fileID: -6218584348152223881, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 387360953}
   m_SourcePrefab: {fileID: 100100000, guid: 85ab5c9c5658bbb4daff07d9ab2bbbad, type: 3}
 --- !u!1 &766986277
 GameObject:
@@ -2479,7 +2568,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.15
+  m_fontSize: 56.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2721,6 +2810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FX_PF_Fire_Torch_01 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598978539619233247, guid: 860a6a56a2c780d48a0dfb513caa45f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4598978540961946909, guid: 860a6a56a2c780d48a0dfb513caa45f3,
         type: 3}
@@ -3189,7 +3283,7 @@ GameObject:
   - component: {fileID: 1374294223}
   m_Layer: 0
   m_Name: Trees
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3566,7 +3660,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.15
+  m_fontSize: 56.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

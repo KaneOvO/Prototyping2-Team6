@@ -41,7 +41,7 @@ public class PlantingTool : MonoBehaviour
                 RemoveTreePreview();
                 Debug.Log("RemoveTreePreview");
             }
-            else if(!Input.GetMouseButton(0) && isPreviewing)
+            else if (!Input.GetMouseButton(0) && isPreviewing)
             {
                 RemoveTreePreview();
                 Debug.Log("RemoveTreePreview");
@@ -63,21 +63,26 @@ public class PlantingTool : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            
+            Debug.Log(hit.collider.tag);
             if (hit.collider.CompareTag("Planet"))
             {
                 if (currentPreviewTree == null)
                 {
-                    
+
                     currentPreviewTree = Instantiate(treePreviewPrefab, hit.point, Quaternion.identity);
                     isPreviewing = true;
                 }
                 else
                 {
-                    
+
                     currentPreviewTree.transform.position = hit.point;
                     currentPreviewTree.transform.up = hit.normal;
                 }
+            }
+
+            if (hit.collider.CompareTag("Water"))
+            {
+                RemoveTreePreview();
             }
         }
     }
@@ -111,7 +116,20 @@ public class PlantingTool : MonoBehaviour
 
     bool CheckCanPlanting(GameObject tree)
     {
-        return tree.transform.Find("PlantingCheck").GetComponent<PlantingCheck>().canPlanting;
+        if (tree == null)
+        {
+            Debug.LogWarning("Tree is null in CheckCanPlanting");
+            return false;
+        }
+
+        Transform plantingCheck = tree.transform.Find("PlantingCheck");
+        if (plantingCheck == null)
+        {
+            Debug.LogWarning("PlantingCheck not found in tree");
+            return false;
+        }
+
+        return plantingCheck.GetComponent<PlantingCheck>().canPlanting;
     }
 
 }

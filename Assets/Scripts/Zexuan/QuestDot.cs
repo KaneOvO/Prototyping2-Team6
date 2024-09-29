@@ -16,7 +16,7 @@ public class QuestDot : MonoBehaviour
 
     private void Update()
     {
-        closestFire = GetClosestTargetOnSphere(GameManager.Instance.fire, GameManager.Instance.player.transform.position);
+        //closestFire = GetClosestTargetOnSphere(GameManager.Instance.fire, GameManager.Instance.player.transform.position);
         if(closestFire == null)
         {
             dotPosition.localScale = Vector3.zero;
