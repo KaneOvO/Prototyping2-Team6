@@ -12,7 +12,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - PlayerTag
@@ -39,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Background
   - 
   m_SortingLayers:
   - name: Default
