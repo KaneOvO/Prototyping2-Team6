@@ -9,6 +9,8 @@ public class QuestDot : MonoBehaviour
     public Transform dotPosition;
     public Camera miniMapCamera;
     public GameObject closestFire;
+    public float viewAngleLimit = 15f;
+    public float dotLimit = 15f;
 
     void Awake()
     {
@@ -33,7 +35,7 @@ public class QuestDot : MonoBehaviour
         dotPosition.localScale = Vector3.one;
         if (closestFire != null)
         {
-            if (!IsOutsideMinimap(closestFire.transform.position, GameManager.Instance.player.transform.position, GameManager.Instance.planet.transform.position, 15f))
+            if (!IsOutsideMinimap(closestFire.transform.position, GameManager.Instance.player.transform.position, GameManager.Instance.planet.transform.position, viewAngleLimit))
             {
                 dotPosition.position = targetPosition;
                 dotPosition.localScale = Vector3.one;
@@ -54,10 +56,10 @@ public class QuestDot : MonoBehaviour
                 float planetRadius = Vector3.Distance(GameManager.Instance.player.transform.position, planetCenter);
 
                 // Set the dot position
-                dotPosition.position = GameManager.Instance.player.transform.position + edgeDirection * 35f;  
+                dotPosition.position = GameManager.Instance.player.transform.position + edgeDirection * dotLimit;  
 
                 // Calculate the new position above the surface
-                float offsetAboveSurface = 1.0f;  // set the offset above the surface
+                float offsetAboveSurface = 2.0f;  // set the offset above the surface
                 dotPosition.position = planetCenter + (dotPosition.position - planetCenter).normalized * (planetRadius + offsetAboveSurface);
 
                 // calculate forward direction

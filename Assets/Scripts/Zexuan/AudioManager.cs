@@ -137,8 +137,6 @@ public class AudioManager : MonoBehaviour
 
             while (elapsedTime < duration)
             {
-                Debug.Log("S.source.volume: " + s.source.volume);
-                Debug.Log("S.volume: " + s.volume);
                 elapsedTime += Time.deltaTime;
                 s.source.volume = Mathf.Lerp(0f, startVolume, elapsedTime / duration);
                 yield return null;
@@ -163,12 +161,7 @@ public class AudioManager : MonoBehaviour
             {
                 if(!isFadeing)
                 {
-                    Debug.Log("!isFadeing");
                     s.source.volume = s.volume * globalVolume;
-                }
-                else
-                {
-                    
                 }
                 
             }

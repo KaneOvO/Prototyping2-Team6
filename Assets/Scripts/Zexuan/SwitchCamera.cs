@@ -74,9 +74,10 @@ public class SwitchCamera : MonoBehaviour
     {
         camera1.SetActive(true);
         camera2.SetActive(false);
-        minimapCamera1.SetActive(true);
-        minimapCamera2.SetActive(false);
+        minimapCamera1.SetActive(false);
+        minimapCamera2.SetActive(true);
         startCamera.SetActive(false);
+        GameManager.Instance.player.transform.SetParent(null);
     }
 
 
