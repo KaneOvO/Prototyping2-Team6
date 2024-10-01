@@ -128,7 +128,7 @@ MonoBehaviour:
   firePrefab: {fileID: 1696666546359898561, guid: ce17f7080e137444e9144e9b81648ce6,
     type: 3}
   firePlaceHolder: {fileID: 0}
-  _treeHpMax: 10
+  _treeHpMax: 1000
   _treeWatered: 0
   _extinguishTimeThreshold: 2
   _extinguishTime: 0

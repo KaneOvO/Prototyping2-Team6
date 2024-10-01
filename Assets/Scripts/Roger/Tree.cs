@@ -51,8 +51,8 @@ namespace Roger
                _extinguishTime += Time.deltaTime;
                 if (_extinguishTime >= _extinguishTimeThreshold)
                 {
-                    //GameManager.Instance.TreeStopBurning(GetComponent<Tree>());
-                    TreeStopBurning();
+                    GameManager.Instance.TreeStopBurning(GetComponent<Tree>());
+                    //TreeStopBurning();
                 }
             }
         }
