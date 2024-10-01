@@ -961,6 +961,11 @@ PrefabInstance:
       propertyPath: wateringUI
       value: 
       objectReference: {fileID: 1509426434}
+    - target: {fileID: 7409770924023351515, guid: 09a54baa4082f4348be2047622d12e0d,
+        type: 3}
+      propertyPath: wateringCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7638234203967119568, guid: 09a54baa4082f4348be2047622d12e0d,
         type: 3}
       propertyPath: plantingUI
@@ -975,7 +980,7 @@ PrefabInstance:
     - target: {fileID: 7638234203967119568, guid: 09a54baa4082f4348be2047622d12e0d,
         type: 3}
       propertyPath: plantingCooldown
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7638234203967119568, guid: 09a54baa4082f4348be2047622d12e0d,
         type: 3}

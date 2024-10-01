@@ -130,7 +130,7 @@ MonoBehaviour:
   firePlaceHolder: {fileID: 0}
   _treeHpMax: 1000
   _treeWatered: 0
-  _extinguishTimeThreshold: 2
+  _extinguishTimeThreshold: 1
   _extinguishTime: 0
 --- !u!114 &5497242320513477863
 MonoBehaviour:
