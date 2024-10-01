@@ -33,6 +33,10 @@ public class SC_RigidbodyWalker : MonoBehaviour
 
     void Update()
     {
+        if(animator == null)
+        {
+            return;
+        }
         if (Input.GetKey(KeyCode.W))
         {
             animator.SetFloat("Speed", r.velocity.magnitude);

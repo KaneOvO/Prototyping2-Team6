@@ -308,10 +308,10 @@ MonoBehaviour:
   tools: {fileID: 1651940750152872678}
   treePrefab: {fileID: 1130535350007672286, guid: ef8154ed10037354cbf8db52d462a770,
     type: 3}
-  treePreviewPrefab: {fileID: 1130535350007672286, guid: 2cc3e9316c750bb4580c463b49c05c8a,
+  treePreviewPrefab: {fileID: 1130535350007672286, guid: ed8c9bf27f899104fa7b1b7d756ebdd3,
     type: 3}
   plantingUI: {fileID: 0}
-  plantingCooldown: 3
+  plantingCooldown: 2
 --- !u!114 &7409770924023351515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5000002
   m_Height: 2.0000007
@@ -372,7 +372,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 0.48, z: 1.2}
   m_Center: {x: 0, y: 0.86, z: 0.96}
@@ -1656,7 +1656,7 @@ Transform:
   m_GameObject: {fileID: 5257630209497758280}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 70, z: 0}
+  m_LocalPosition: {x: 0, y: 28.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1671,7 +1671,7 @@ Camera:
   m_GameObject: {fileID: 5257630209497758280}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.019607844, g: 0.019607844, b: 0.05882353, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2851,7 +2851,7 @@ Camera:
   m_GameObject: {fileID: 8695205518070667516}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.019607844, g: 0.019607844, b: 0.05882353, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -3050,10 +3050,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
-  m_Height: 1.4
+  m_Radius: 0.059188
+  m_Height: 0.34881592
   m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0.02093967, y: 0.17440796, z: -0.004387133}
 --- !u!114 &18054406615004715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3080,9 +3080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae8e1221eaecbd4e999fb41e50c867f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   canJump: 1
-  jumpHeight: 2
+  jumpHeight: 3
   playerCamera: {fileID: 0}
   rotationSpeed: 2
   lookSpeed: 2

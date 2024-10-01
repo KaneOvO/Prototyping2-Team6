@@ -18,6 +18,7 @@ public class WateringTool : MonoBehaviour
     private float cooldownTime = 0f;
     private bool isWatering = false;
     private bool isCoolingDown = false;
+    public Animator animator;
 
     void Update()
     {
@@ -43,6 +44,7 @@ public class WateringTool : MonoBehaviour
                     waterCollider1.enabled = true;
                     waterCollider2.enabled = true;
                     waterEffect.SetActive(true);
+                    animator.SetBool("IsWatering", true);
                 }
 
                 wateringTime += Time.deltaTime;
@@ -68,6 +70,7 @@ public class WateringTool : MonoBehaviour
         waterEffect.SetActive(false);
         isCoolingDown = true;
         wateringUI.GetComponent<TestSkill>().isCold = true;
+        animator.SetBool("IsWatering", false);
     }
 
     void OnTriggerEnter(Collider other)
