@@ -111,7 +111,7 @@ public class PlantingTool : MonoBehaviour
                 GameObject tree = Instantiate(treePrefab, hit.point, Quaternion.identity);
                 Roger.GameManager.Instance.TreePlanted(tree.GetComponent<Roger.Tree>());
                 tree.transform.up = hit.normal;
-                tree.transform.SetParent(hit.collider.transform.Find("Trees"));
+                tree.transform.SetParent(GameManager.Instance.planet.transform.Find("Trees"));
             }
         }
     }
