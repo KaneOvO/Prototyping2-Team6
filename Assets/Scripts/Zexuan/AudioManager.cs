@@ -60,8 +60,11 @@ public class AudioManager : MonoBehaviour
         Sound s = System.Array.Find(sounds, sound => sound.name == name);
         if (s != null && s.source != null)
         {
-            s.source.volume = s.volume * globalVolume;  // Ensure volume is adjusted by global volume
-            s.source.Play();
+            if (!s.source.isPlaying)
+            {
+                s.source.volume = s.volume * globalVolume;  // Ensure volume is adjusted by global volume
+                s.source.Play();
+            }
         }
         else
         {
@@ -131,7 +134,7 @@ public class AudioManager : MonoBehaviour
             s.source.Play();  // Start playing the music
             s.source.volume = 0f;  // Start with volume at 0
             float startVolume = s.volume * globalVolume;
-            
+
 
             float elapsedTime = 0f;
 
@@ -159,11 +162,11 @@ public class AudioManager : MonoBehaviour
         {
             if (s.source != null && s.source.isPlaying)
             {
-                if(!isFadeing)
+                if (!isFadeing)
                 {
                     s.source.volume = s.volume * globalVolume;
                 }
-                
+
             }
         }
     }

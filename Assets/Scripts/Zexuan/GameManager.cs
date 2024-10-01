@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Roger;
 
 
 public class GameManager : MonoBehaviour
@@ -56,6 +57,16 @@ public class GameManager : MonoBehaviour
                 UIManager.Instance.ResumeGame();
             }
         }
+
+        if(Roger.GameManager.Instance.burningTrees.Count > 0)
+        {
+            AudioManager.Instance.Play("Fire");
+        }
+        else
+        {
+            AudioManager.Instance.Stop("Fire");
+        }
+
     }
 
     

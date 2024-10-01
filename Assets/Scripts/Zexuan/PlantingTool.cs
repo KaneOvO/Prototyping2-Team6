@@ -112,6 +112,7 @@ public class PlantingTool : MonoBehaviour
                 Roger.GameManager.Instance.TreePlanted(tree.GetComponent<Roger.Tree>());
                 tree.transform.up = hit.normal;
                 tree.transform.SetParent(GameManager.Instance.planet.transform.Find("Trees"));
+                AudioManager.Instance.Play("Planting");
             }
         }
     }

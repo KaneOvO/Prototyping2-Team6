@@ -45,6 +45,7 @@ public class WateringTool : MonoBehaviour
                     waterCollider2.enabled = true;
                     waterEffect.SetActive(true);
                     animator.SetBool("IsWatering", true);
+                    AudioManager.Instance.Play("Water");
                 }
 
                 wateringTime += Time.deltaTime;
@@ -71,6 +72,7 @@ public class WateringTool : MonoBehaviour
         isCoolingDown = true;
         wateringUI.GetComponent<TestSkill>().isCold = true;
         animator.SetBool("IsWatering", false);
+        AudioManager.Instance.Stop("Water");
     }
 
     void OnTriggerEnter(Collider other)
