@@ -11,8 +11,8 @@ namespace Roger
         public GameObject firePlaceHolder;
 
         private float _fireTimer;
-        private float _treeHp;
-        public float _treeHpMax = 10f;
+        private float _treeHp = 10f;
+        private float _treeHpMax = 10f;
         public bool _treeWatered;
         public float _extinguishTimeThreshold = 2f;
         public float _extinguishTime = 0f;
@@ -48,7 +48,7 @@ namespace Roger
 
             if(_treeWatered && isOnFire)
             {
-               _extinguishTime += Time.deltaTime;
+                _extinguishTime += Time.deltaTime;
                 if (_extinguishTime >= _extinguishTimeThreshold)
                 {
                     GameManager.Instance.TreeStopBurning(GetComponent<Tree>());
