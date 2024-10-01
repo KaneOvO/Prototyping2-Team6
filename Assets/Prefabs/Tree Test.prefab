@@ -125,10 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOnFire: 0
-  firePrefab: {fileID: 1696666546359898561, guid: ce17f7080e137444e9144e9b81648ce6,
+  firePrefab: {fileID: 4598978539619233247, guid: 860a6a56a2c780d48a0dfb513caa45f3,
     type: 3}
   firePlaceHolder: {fileID: 0}
-  _treeHpMax: 1000
   _treeWatered: 0
   _extinguishTimeThreshold: 1
   _extinguishTime: 0

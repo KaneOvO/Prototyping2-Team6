@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     public GameObject MiniMap;
     public Slider volumeSlider;
     public GameObject[] equapmentBar;
+    public GameObject tutorialControlPanel;
+    public GameObject tutorialMsgBoard;
     public bool isMainMenu;
     public bool isTransitioning;
 
@@ -206,5 +208,15 @@ public class UIManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+    }
+
+    public void ShowTutorialControlPanel()
+    {
+        tutorialControlPanel.SetActive(true);
+    }
+
+    public void HideTutorialControlPanel()
+    {
+        tutorialControlPanel.SetActive(false);
     }
 }

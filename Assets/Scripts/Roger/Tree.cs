@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
+using UnityEngine.Serialization;
 
 namespace Roger
 {
@@ -11,8 +11,8 @@ namespace Roger
         public GameObject firePlaceHolder;
 
         private float _fireTimer;
-        private float _treeHp = 10f;
-        private float _treeHpMax = 10f;
+        public float treeHp = 15f;
+        public float treeHpMax = 20f;
         public bool _treeWatered;
         public float _extinguishTimeThreshold = 2f;
         public float _extinguishTime = 0f;
@@ -34,14 +34,14 @@ namespace Roger
         {
             if (isOnFire && !_treeWatered)
             {
-                _treeHp -= Time.deltaTime;
+                treeHp -= Time.deltaTime;
             }
-            else if (_treeHp < _treeHpMax)
+            else if (treeHp < treeHpMax)
             {
-                _treeHp += Time.deltaTime;
+                treeHp += Time.deltaTime;
             }
 
-            if (_treeHp <= 0)
+            if (treeHp <= 0)
             {
                 TreeBurnedDown();
             }
@@ -61,7 +61,7 @@ namespace Roger
         {
             isOnFire = true;
             
-            var fire = Instantiate(firePrefab, transform.position, Quaternion.identity);
+            var fire = Instantiate(firePrefab, transform.position, transform.rotation);
             firePlaceHolder = fire;
             fire.transform.SetParent(transform);
         }

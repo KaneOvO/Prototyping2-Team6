@@ -14,7 +14,7 @@ namespace Roger
             toCenter.Normalize();
             transform.up = toCenter;
 
-            if (gameObject.CompareTag("Fire"))
+            if (gameObject.CompareTag("Tree"))
             {
                 transform.up = -toCenter.normalized;
             }

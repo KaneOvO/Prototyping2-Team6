@@ -11,8 +11,8 @@ namespace Roger
         
         public List<Tree> trees;
         public List<Tree> burningTrees;
-        private float _fireSpawnTimer = 10f;
-        private float _fireSpawnRateMax = 3f;
+        private float _fireSpawnTimer = 20f;
+        private float _fireSpawnRateMax = 5f;
 
         private void Start()
         {
@@ -59,24 +59,12 @@ namespace Roger
         {
             burningTrees.Remove(tree);
         }
-
+        
         private IEnumerator FireSpawn()
         {
             while (true)
             {
                 yield return new WaitForSeconds(_fireSpawnTimer);
-                
-                /*if (trees.Count > 0)
-                {
-                    var randomIndex = Random.Range(0, trees.Count);
-                    
-                    TreeStartBurning(trees[randomIndex]);
-
-                    if (_fireSpawnTimer > _fireSpawnRateMax)
-                    {
-                        _fireSpawnTimer -= 1;
-                    }
-                }*/
 
                 if (trees.Count > 0 && burningTrees.Count == 0)
                 {
@@ -101,6 +89,11 @@ namespace Roger
                     }
                     
                     TreeStartBurning(closetTree);
+                }
+                
+                if (_fireSpawnTimer > _fireSpawnRateMax)
+                {
+                    _fireSpawnTimer -= 0.3f;
                 }
             }
         }
