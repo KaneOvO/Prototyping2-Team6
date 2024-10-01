@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Zexuan/GameScene.unity
-    guid: 92cdf0fb0d97b2843ba2df7e1f8badec
+    path: Assets/Scenes/Zexuan/Final.unity
+    guid: 1142e50808ede1741a66ebf8bab38ae6
   m_configObjects: {}

@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(false);
         LockCursor();
         SceneManager1.Instance.isBackToMainMenu = false;
-        GetComponent<SceneTransition>().LoadScene("GameScene");
+        GetComponent<SceneTransition>().LoadScene("Final");
     }
 
     public void ShowCredits()
@@ -129,7 +129,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         SceneManager1.Instance.isBackToMainMenu = true;
-        GetComponent<SceneTransition>().LoadScene("GameScene");
+        GetComponent<SceneTransition>().LoadScene("Final");
     }
 
     public void SwitchToPlantingTool()
