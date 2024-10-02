@@ -14,6 +14,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
     public Camera playerCamera;
     public float rotationSpeed = 2.0f;
     bool grounded = false;
+    bool isJumping = false;
     Rigidbody r;
     Vector2 rotation = Vector2.zero;
     float maxVelocityChange = 10.0f;
@@ -37,7 +38,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKey(KeyCode.W))
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S )) &&!isJumping)
         {
             animator.SetFloat("Speed", r.velocity.magnitude);
         }
@@ -79,6 +80,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
                 if (Input.GetButton("Jump") && canJump)
                 {
                     r.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
+                    isJumping = true;
                 }
             }
 
@@ -86,9 +88,15 @@ public class SC_RigidbodyWalker : MonoBehaviour
         }
     }
 
-    void OnCollisionStay()
+    void OnCollisionStay(Collision other)
     {
         grounded = true;
+
+        if(other.gameObject.tag == "Planet" || other.gameObject.tag == "Water")
+        {
+            isJumping = false;
+        }
+
     }
 
 }
