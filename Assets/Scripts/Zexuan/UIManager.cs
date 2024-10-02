@@ -213,6 +213,7 @@ public class UIManager : MonoBehaviour
     public void ShowTutorialControlPanel()
     {
         tutorialControlPanel.SetActive(true);
+        tutorialMsgBoard.SetActive(true);
     }
 
     public void HideTutorialControlPanel()

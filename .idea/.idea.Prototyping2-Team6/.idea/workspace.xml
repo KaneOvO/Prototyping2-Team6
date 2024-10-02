@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64e76f82-2bdf-4399-ae4a-6a035c82d072" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tutorial.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tutorial.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototyping2-Team6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototyping2-Team6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tree Test.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tree Test.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Character/Materials/Mat_Liquid.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Materials/Mat_Liquid.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/PlanetAlign.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/PlanetAlign.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tutorial.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Zexuan/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Zexuan/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +118,8 @@
       <workItem from="1727191674677" duration="6951000" />
       <workItem from="1727365318991" duration="80000" />
       <workItem from="1727365406651" duration="5118000" />
+      <workItem from="1727896814882" duration="16000" />
+      <workItem from="1727897933314" duration="8569000" />
     </task>
     <servers />
   </component>

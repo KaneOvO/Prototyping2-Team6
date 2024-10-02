@@ -14,6 +14,8 @@ namespace Roger
         private float _fireSpawnTimer = 20f;
         private float _fireSpawnRateMax = 5f;
 
+        public bool treePlantedFlag;
+
         private void Start()
         {
             if (Instance== null)
@@ -28,7 +30,7 @@ namespace Roger
             var treesInScene = GameObject.FindGameObjectsWithTag("Tree");
             foreach (var tree in treesInScene)
             {
-                TreePlanted(tree.GetComponent<Tree>());
+                trees.Add(tree.GetComponent<Tree>());
             }
             
             StartCoroutine(FireSpawn());
@@ -37,6 +39,8 @@ namespace Roger
         public void TreePlanted(Tree tree)
         {
             trees.Add(tree);
+            
+            treePlantedFlag = true;
         }
 
         public void TreeStartBurning(Tree tree)
