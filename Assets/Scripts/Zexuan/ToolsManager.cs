@@ -32,18 +32,18 @@ public class ToolsManager : MonoBehaviour
             UIManager.Instance.wateringToolUI.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) ||  Input.GetKeyDown(KeyCode.LeftAlt))
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
-            //Debug.Log("UnLock Cursor");
+            Debug.Log("UnLock Cursor");
         }
 
-        if ((Input.GetKeyDown(KeyCode.Q) ||  Input.GetKeyDown(KeyCode.LeftAlt)) && Time.timeScale == 1)
+        if (Input.GetKeyUp(KeyCode.LeftAlt) && Time.timeScale == 1)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            //Debug.Log("lock Cursor");
+            Debug.Log("lock Cursor");
         }
     }
 }
