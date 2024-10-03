@@ -81,6 +81,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
                 {
                     r.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
                     isJumping = true;
+                    animator.SetBool("IsJump", true);
                 }
             }
 
@@ -95,6 +96,7 @@ public class SC_RigidbodyWalker : MonoBehaviour
         if(other.gameObject.tag == "Planet" || other.gameObject.tag == "Water")
         {
             isJumping = false;
+            animator.SetBool("IsJump", false);
         }
 
     }
