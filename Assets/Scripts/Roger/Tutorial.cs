@@ -66,7 +66,7 @@ namespace Roger
 
         public void GameStart()
         {
-            GameManager.Instance.TreeStartBurning(GameManager.Instance.trees[0]);
+            GameManager.Instance.TreeStartBurning(tutorialTree);
         }
 
         private void UpdateState(TutorialState state)

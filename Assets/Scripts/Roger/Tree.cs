@@ -11,7 +11,7 @@ namespace Roger
         public GameObject firePlaceHolder;
 
         private float _fireTimer;
-        public float treeHp = 15f;
+        public float treeHp = 20f;
         public float treeHpMax = 20f;
         public bool _treeWatered;
         public float _extinguishTimeThreshold = 2f;

@@ -11,8 +11,8 @@ namespace Roger
         
         public List<Tree> trees;
         public List<Tree> burningTrees;
-        private float _fireSpawnTimer = 20f;
-        private float _fireSpawnRateMax = 5f;
+        private float _fireSpawnTimer = 30f;
+        private float _fireSpawnRateMax = 10f;
 
         public bool treePlantedFlag;
 
@@ -57,6 +57,11 @@ namespace Roger
             burningTrees.Remove(tree);
             
             tree.TreeStopBurning();
+            
+            if (_fireSpawnTimer > _fireSpawnRateMax)
+            {
+                _fireSpawnTimer -= 2f;
+            }
         }
 
         public void TreeBurnedDown(Tree tree)
@@ -93,11 +98,6 @@ namespace Roger
                     }
                     
                     TreeStartBurning(closetTree);
-                }
-                
-                if (_fireSpawnTimer > _fireSpawnRateMax)
-                {
-                    _fireSpawnTimer -= 0.3f;
                 }
             }
         }
