@@ -1,14 +1,13 @@
-﻿Shader "ScreenUVWithFixedAlpha"
+﻿Shader "ScreenUVWithAlphaTest"
 {
     Properties{
         _MainTex("Main Texture", 2D) = "white" {}
         _AlphaTex("Alpha Texture", 2D) = "white" {}
     }
-    SubShader
+        SubShader
     {
-        Tags { "RenderType"="Transparent" } 
+        Tags { "RenderType" = "Transparent" }
         LOD 200
-        Blend SrcAlpha OneMinusSrcAlpha // 启用透明混合
 
         Pass
         {
@@ -21,40 +20,40 @@
             struct appdata
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0; // 物体本地UV坐标
+                float2 uv : TEXCOORD0;
             };
 
             struct v2f
             {
-                float2 uv : TEXCOORD0; // 保持物体UV用于alpha采样
+                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float2 screenUV : TEXCOORD1; // 用于屏幕UV采样
+                float2 screenUV : TEXCOORD1;
             };
 
-            v2f vert (appdata v)
+            v2f vert(appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv; // 保持对象的UV用于alpha贴图
+                o.uv = v.uv;
                 // 计算屏幕UV
-                o.screenUV = float2(1,_ProjectionParams.x)*(o.vertex.xy/o.vertex.w+1)*0.5;
+                o.screenUV = float2(1,_ProjectionParams.x) * (o.vertex.xy / o.vertex.w + 1) * 0.5;
                 return o;
             }
 
             sampler2D _MainTex;
             sampler2D _AlphaTex;
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag(v2f i) : SV_Target
             {
                 // 使用屏幕UV采样纹理贴图
                 fixed4 col = tex2D(_MainTex, i.screenUV);
-                // 使用物体UV采样Alpha贴图
-                fixed alpha = tex2D(_AlphaTex, i.uv).r; // 使用Alpha贴图的红色通道作为Alpha值
-                col.a = alpha; // 将Alpha值赋予最终颜色
-
-                return col;
-            }
-            ENDCG
+            // 使用物体UV采样Alpha贴图
+            fixed alpha = tex2D(_AlphaTex, i.uv).r; // 使用Alpha贴图的红色通道作为Alpha值
+            col.a = alpha; // 将Alpha值赋予最终颜色
+            return col;
         }
+        ENDCG
     }
+    }
+        FallBack "Diffuse"
 }
