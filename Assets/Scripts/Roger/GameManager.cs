@@ -11,8 +11,8 @@ namespace Roger
         
         public List<Tree> trees;
         public List<Tree> burningTrees;
-        private float _fireSpawnTimer = 30f;
-        private float _fireSpawnRateMax = 10f;
+        private float _fireSpawnTimer = 20f;
+        private float _fireSpawnRateMax = 8f;
 
         public bool treePlantedFlag;
 
