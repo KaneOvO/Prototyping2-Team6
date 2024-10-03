@@ -2696,7 +2696,7 @@ MonoBehaviour:
     levelsOutWhite: 255
   - name: New Tab
     brushes:
-    - name: Tree
+    - name: Tree Test
       settings:
         brushRadius: 1
         brushSpacing: 0.5
@@ -3009,7 +3009,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
       customPreviewImage: {fileID: 0}
     levelsGamma: 1

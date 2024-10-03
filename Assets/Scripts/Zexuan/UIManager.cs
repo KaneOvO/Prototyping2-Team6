@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject StartButton;
     public GameObject CreditsButton;
     public GameObject ExitButton;
+    public GameObject Logo;
     public GameObject fadeImage;
     public GameObject creditsPanel;
     public GameObject pauseMenu;
@@ -164,6 +165,7 @@ public class UIManager : MonoBehaviour
         StartButton.SetActive(false);
         CreditsButton.SetActive(false);
         ExitButton.SetActive(false);
+        Logo.SetActive(false);
     }
 
     void ShowStartUI()
@@ -171,6 +173,7 @@ public class UIManager : MonoBehaviour
         StartButton.SetActive(true);
         CreditsButton.SetActive(true);
         ExitButton.SetActive(true);
+        Logo.SetActive(true);
     }
 
     void ShowGameUI()
@@ -213,6 +216,7 @@ public class UIManager : MonoBehaviour
     public void ShowTutorialControlPanel()
     {
         tutorialControlPanel.SetActive(true);
+        tutorialMsgBoard.SetActive(true);
     }
 
     public void HideTutorialControlPanel()
