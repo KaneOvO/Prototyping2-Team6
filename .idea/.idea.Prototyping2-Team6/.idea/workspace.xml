@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64e76f82-2bdf-4399-ae4a-6a035c82d072" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Prototyping2-Team6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Prototyping2-Team6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Character/Materials/Mat_Liquid.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Character/Materials/Mat_Liquid.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Roger/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Roger/Tutorial.cs" afterDir="false" />
-    </list>
+    <list default="true" id="64e76f82-2bdf-4399-ae4a-6a035c82d072" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +115,7 @@
       <workItem from="1727896814882" duration="16000" />
       <workItem from="1727897933314" duration="9547000" />
       <workItem from="1727927181069" duration="216000" />
-      <workItem from="1727927421421" duration="784000" />
+      <workItem from="1727927421421" duration="1124000" />
     </task>
     <servers />
   </component>
